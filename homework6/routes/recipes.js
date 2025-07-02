@@ -1,34 +1,33 @@
 import { Router } from 'express';
-import { existsSync, readFileSync, writeFileSync } from 'fs';
+import { existsSync } from 'fs';
+import { readFile, writeFile } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-const router = Router();
-
-// Fix __dirname for ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
 const filePath = join(__dirname, '../data/recipes.json');
 
-function getRecipes() {
+const router = Router();
+
+async function getRecipes() {
   if (!existsSync(filePath)) return [];
-  const data = readFileSync(filePath);
+  const data = await readFile(filePath, 'utf-8');
   return JSON.parse(data);
 }
 
-function saveRecipes(recipes) {
-  writeFileSync(filePath, JSON.stringify(recipes, null, 2));
+async function saveRecipes(recipes) {
+  await writeFile(filePath, JSON.stringify(recipes, null, 2));
 }
 
-router.get('/', (req, res) => {
-  const recipes = getRecipes();
+router.get('/', async (req, res) => {
+  const recipes = await getRecipes();
   console.log(`All recepies were requested.`);
   res.json(recipes);
 });
 
-router.get('/:name', (req, res) => {
-  const recipes = getRecipes();
+router.get('/:name', async (req, res) => {
+  const recipes = await getRecipes();
   const recipe = recipes.find(x => x.name.toLowerCase() === req.params.name.toLowerCase());
   if (!recipe) {
     console.log(`Request for specific recipe not found!\nRecipe name: ${recipe}`)
@@ -38,28 +37,28 @@ router.get('/:name', (req, res) => {
   res.json(recipe);
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   const newRecipe = req.body;
-  const recipes = getRecipes();
+  const recipes = await getRecipes();
   recipes.push(newRecipe);
-  saveRecipes(recipes);
+  await saveRecipes(recipes);
   console.log(`New recipie added!\n${newRecipe}`);
   res.status(201).json({ message: 'Recipe added!', recipe: newRecipe });
 });
 
-router.put('/:name', (req, res) => {
-  const recipes = getRecipes();
+router.put('/:name', async (req, res) => {
+  const recipes = await getRecipes();
   const index = recipes.findIndex(x => x.name.toLowerCase() === req.params.name.toLowerCase());
 
   if (index === -1) return res.status(404).json({ error: 'Recipe not found' });
 
   recipes[index] = req.body;
-  saveRecipes(recipes);
+  await saveRecipes(recipes);
   res.json({ message: 'Recipe updated!', recipe: recipes[index] });
 });
 
-router.delete('/:name', (req, res) => {
-  const recipes = getRecipes();
+router.delete('/:name', async (req, res) => {
+  const recipes = await getRecipes();
   const toDelRec = req.params.name;
   const filtered = recipes.filter(x => x.name.toLowerCase() !== toDelRec.toLowerCase());
 
@@ -68,7 +67,7 @@ router.delete('/:name', (req, res) => {
     return res.status(404).json({ error: 'Recipe not found' });
   }
   console.log(`The recipe:"${toDelRec}" was deleted.`);
-  saveRecipes(filtered);
+  await saveRecipes(filtered);
   res.json({ message: 'Recipe deleted!' });
 });
 
