@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recipe Manager</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <button id="darkModeToggle">🌙 Toggle Dark Mode</button>
+  <h1>🍽️ Recipe Manager</h1>
+
+  <h2>Add a Recipe</h2>
+  <form id="recipeForm">
+    <input type="text" id="name" placeholder="Name" required />
+    <textarea id="description" placeholder="Description"></textarea>
+    <textarea id="ingredients" placeholder="Ingredients (name,amount,unit per line)"></textarea>
+    <textarea id="steps" placeholder="Steps (one per line)"></textarea>
+    <input type="number" id="cookingTime" placeholder="Cooking time (min)" />
+    <input type="text" id="difficulty" placeholder="Difficulty" />
+    <button type="submit">Add Recipe</button>
+  </form>
+
+  <h2>📖 All Recipes</h2>
+  <ul id="recipeList"></ul>
+
+  <div id="editModal">
+    <h3>Edit Recipe</h3>
+    <input type="text" id="editName" disabled />
+    <textarea id="editDescription" placeholder="Description"></textarea>
+    <textarea id="editIngredients" placeholder="Ingredients (one per line)"></textarea>
+    <textarea id="editSteps" placeholder="Steps (one per line)"></textarea>
+    <input type="number" id="editCookingTime" />
+    <input type="text" id="editDifficulty" />
+    <button onclick="submitEdit()">Save Changes</button>
+    <button onclick="closeEdit()">Cancel</button>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,22 +1,22 @@
 import http from 'http';
 import url from 'url';
 import {
-    add,
-    subtract,
-    multiply,
-    divide,
-    power,
-    modulo
+  add,
+  subtract,
+  multiply,
+  divide,
+  power,
+  modulo
 } from './calculator.js';
 
 const server = http.createServer((req, res) => {
-    const parsedUrl = url.parse(req.url, true);
-    const { pathname, query } = parsedUrl;
+  const parsedUrl = url.parse(req.url, true);
+  const { pathname, query } = parsedUrl;
 
-    if (pathname === '/') {
-        // Serve form
-        res.setHeader('Content-Type', 'text/html');
-        res.end(`
+  if (pathname === '/') {
+    // Serve form
+    res.setHeader('Content-Type', 'text/html');
+    res.end(`
     <html>
       <head><title>Calculator</title></head>
       <body>
@@ -37,27 +37,27 @@ const server = http.createServer((req, res) => {
       </body>
     </html>
   `);
-        return;
+    return;
+  }
+
+  if (pathname === '/calculate' && query.operation && query.a !== undefined && query.b !== undefined) {
+    // Handle calculation
+    const a = parseFloat(query.a);
+    const b = parseFloat(query.b);
+    let result;
+
+    switch (query.operation) {
+      case 'add': result = add(a, b); break;
+      case 'subtract': result = subtract(a, b); break;
+      case 'multiply': result = multiply(a, b); break;
+      case 'divide': result = divide(a, b); break;
+      case 'power': result = power(a, b); break;
+      case 'modulo': result = modulo(a, b); break;
+      default: result = 'Unknown operation';
     }
 
-    if (pathname === '/calculate' && query.operation && query.a !== undefined && query.b !== undefined) {
-        // Handle calculation
-        const a = parseFloat(query.a);
-        const b = parseFloat(query.b);
-        let result;
-
-        switch (query.operation) {
-            case 'add': result = add(a, b); break;
-            case 'subtract': result = subtract(a, b); break;
-            case 'multiply': result = multiply(a, b); break;
-            case 'divide': result = divide(a, b); break;
-            case 'power': result = power(a, b); break;
-            case 'modulo': result = modulo(a, b); break;
-            default: result = 'Unknown operation';
-        }
-
-        res.setHeader('Content-Type', 'text/html');
-        res.end(`
+    res.setHeader('Content-Type', 'text/html');
+    res.end(`
     <html>
       <body>
         <p><strong>Result:</strong> ${result}</p>
@@ -65,12 +65,12 @@ const server = http.createServer((req, res) => {
       </body>
     </html>
   `);
-        return;
-    }
-    res.writeHead(404, { 'Content-Type': 'text/plain' });
-    res.end('Route not found');
+    return;
+  }
+  res.writeHead(404, { 'Content-Type': 'text/plain' });
+  res.end('Route not found');
 });
 
 server.listen(3000, () => {
-    console.log('Server running at http://localhost:3000');
+  console.log('Server running at http://localhost:3000');
 });

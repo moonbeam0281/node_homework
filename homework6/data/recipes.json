@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Burek",
+    "description": "A traditional Balkan dish.",
+    "ingredients": [
+      {
+        "name": "Dough",
+        "amount": 500,
+        "unit": "grams"
+      },
+      {
+        "name": "Cottage cheese",
+        "amount": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "Oil",
+        "amount": 50,
+        "unit": "ml"
+      }
+    ],
+    "steps": [
+      "Mix the cheese.",
+      "Layer the dough and filling.",
+      "Bake at 200°C for 30 minutes."
+    ],
+    "cookingTime": 45,
+    "difficulty": "easy"
+  }
+]

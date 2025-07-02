@@ -8,7 +8,7 @@ const regexExamples = [
   { name: "MK License Plate", pattern: /^SK\s\d{3,4}[A-Z]{2}$/ },
   { name: "Hex Color", pattern: /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/ },
   { name: "Strong Password", pattern: /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/ },
-  { name: "IPv4 Address", pattern: /^(25[0-5]|2[0-4]\d|1\d\d|\d\d?)\.([0-2]?\d{1,2}|25[0-5])\.([0-2]?\d{1,2}|25[0-5])\.([0-2]?\d{1,2}|25[0-5])$/ }
+  { name: "Binary Number", pattern: /^[01]+$/ }
 ];
 
 export default regexExamples;
