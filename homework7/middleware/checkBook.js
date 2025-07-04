@@ -7,7 +7,14 @@ export function checkBook(req, res, next) {
     и има повеќе од 300 страници.
     */
     if (book.relDate < 2000 && book.pageCount > 300)
+    {
         console.log(`Book: ${book.title} is older than 2000 and has more than 300 pages`);
+        
+        return res.status(400).json({
+            error:"Book is too old and has too many pages!"
+        });
+    }
+        
 
     next();
 }
