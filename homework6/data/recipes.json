@@ -1,30 +1,241 @@
 [
   {
-    "name": "Burek",
-    "description": "A traditional Balkan dish.",
+    "name": "Greek Salad",
+    "description": "A refreshing salad with feta cheese and olives.",
     "ingredients": [
       {
-        "name": "Dough",
-        "amount": 500,
-        "unit": "grams"
-      },
-      {
-        "name": "Cheese",
+        "name": "Tomatoes",
         "amount": 200,
         "unit": "grams"
       },
       {
-        "name": "Oil",
+        "name": "Cucumber",
+        "amount": 150,
+        "unit": "grams"
+      },
+      {
+        "name": "Feta cheese",
+        "amount": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "Olives",
         "amount": 50,
-        "unit": "ml"
+        "unit": "grams"
+      },
+      {
+        "name": "Olive oil",
+        "amount": 2,
+        "unit": "tbsp"
       }
     ],
     "steps": [
-      "Mix the cheese.",
-      "Layer the dough and filling.",
-      "Bake at 200°C for 30 minutes."
+      "Chop the vegetables.",
+      "Combine with olives and crumbled feta.",
+      "Drizzle with olive oil and serve."
     ],
-    "cookingTime": 45,
+    "cookingTime": 10,
     "difficulty": "easy"
+  },
+  {
+    "name": "Spaghetti Bolognese",
+    "description": "Classic Italian pasta dish with meat sauce.",
+    "ingredients": [
+      {
+        "name": "Spaghetti",
+        "amount": 250,
+        "unit": "grams"
+      },
+      {
+        "name": "Ground beef",
+        "amount": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "Tomato sauce",
+        "amount": 150,
+        "unit": "ml"
+      },
+      {
+        "name": "Onion",
+        "amount": 1,
+        "unit": "piece"
+      },
+      {
+        "name": "Garlic",
+        "amount": 2,
+        "unit": "cloves"
+      }
+    ],
+    "steps": [
+      "Cook the spaghetti.",
+      "Sauté onion and garlic, add ground beef.",
+      "Add tomato sauce and simmer.",
+      "Serve over spaghetti."
+    ],
+    "cookingTime": 35,
+    "difficulty": "medium"
+  },
+  {
+    "name": "Chicken Curry",
+    "description": "Spicy and flavorful chicken cooked in curry sauce.",
+    "ingredients": [
+      {
+        "name": "Chicken breast",
+        "amount": 300,
+        "unit": "grams"
+      },
+      {
+        "name": "Coconut milk",
+        "amount": 200,
+        "unit": "ml"
+      },
+      {
+        "name": "Curry powder",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "name": "Onion",
+        "amount": 1,
+        "unit": "piece"
+      },
+      {
+        "name": "Garlic",
+        "amount": 2,
+        "unit": "cloves"
+      }
+    ],
+    "steps": [
+      "Sauté onion and garlic.",
+      "Add chicken and cook until browned.",
+      "Stir in curry powder and coconut milk.",
+      "Simmer until sauce thickens."
+    ],
+    "cookingTime": 40,
+    "difficulty": "medium"
+  },
+  {
+    "name": "Chocolate Mug Cake",
+    "description": "Quick single-serving chocolate cake made in a mug.",
+    "ingredients": [
+      {
+        "name": "Flour",
+        "amount": 4,
+        "unit": "tbsp"
+      },
+      {
+        "name": "Sugar",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "name": "Cocoa powder",
+        "amount": 2,
+        "unit": "tbsp"
+      },
+      {
+        "name": "Milk",
+        "amount": 3,
+        "unit": "tbsp"
+      },
+      {
+        "name": "Oil",
+        "amount": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "steps": [
+      "Mix all ingredients in a mug.",
+      "Microwave for 90 seconds.",
+      "Let it cool slightly before serving."
+    ],
+    "cookingTime": 5,
+    "difficulty": "easy"
+  },
+  {
+    "name": "Pancakes",
+    "description": "Fluffy breakfast pancakes.",
+    "ingredients": [
+      {
+        "name": "Flour",
+        "amount": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "Milk",
+        "amount": 250,
+        "unit": "ml"
+      },
+      {
+        "name": "Egg",
+        "amount": 1,
+        "unit": "piece"
+      },
+      {
+        "name": "Baking powder",
+        "amount": 1,
+        "unit": "tsp"
+      },
+      {
+        "name": "Sugar",
+        "amount": 2,
+        "unit": "tbsp"
+      }
+    ],
+    "steps": [
+      "Mix all ingredients until smooth.",
+      "Pour batter onto a hot pan.",
+      "Flip when bubbles form, then cook the other side.",
+      "Serve with syrup or fruit."
+    ],
+    "cookingTime": 20,
+    "difficulty": "easy"
+  },
+  {
+    "name": "Test Pizza",
+    "description": "A simple pizza test recipe.",
+    "ingredients": [
+      {
+        "name": "Flour",
+        "amount": 300,
+        "unit": "grams"
+      },
+      {
+        "name": "Cheese",
+        "amount": 100,
+        "unit": "grams"
+      }
+    ],
+    "steps": [
+      "Prepare the dough.",
+      "Add toppings.",
+      "Bake at 220°C for 15 minutes."
+    ],
+    "cookingTime": 25,
+    "difficulty": "medium"
+  },
+  {
+    "name": "Test Pizza 2",
+    "description": "A simple pizza test recipe.",
+    "ingredients": [
+      {
+        "name": "Flour",
+        "amount": 300,
+        "unit": "grams"
+      },
+      {
+        "name": "Cheese",
+        "amount": 100,
+        "unit": "grams"
+      }
+    ],
+    "steps": [
+      "Prepare the dough.",
+      "Add toppings.",
+      "Bake at 220°C for 15 minutes."
+    ],
+    "cookingTime": 25,
+    "difficulty": "medium"
   }
 ]

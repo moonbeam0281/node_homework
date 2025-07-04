@@ -1,0 +1,11 @@
+[
+    {
+        "title": "Harry Potter",
+        "description": "A wizzard",
+        "genre": "Sci-fi",
+        "author": "J.K Rowling",
+        "relDate": 2001,
+        "pageCount": 300,
+        "rating": 4.9
+    }
+]

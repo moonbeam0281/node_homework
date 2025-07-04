@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
   const recipes = await getRecipes();
   recipes.push(newRecipe);
   await saveRecipes(recipes);
-  console.log(`New recipie added!\n${newRecipe}`);
+  console.log(`New recipie added!`);
   res.status(201).json({ message: 'Recipe added!', recipe: newRecipe });
 });
 
