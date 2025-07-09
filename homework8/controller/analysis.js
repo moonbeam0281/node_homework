@@ -14,6 +14,7 @@ export async function getTextField(req, res){
     catch(err)
     {
         console.log(err);
+        res.stats(500).send("Template Error");
     }
 };
 

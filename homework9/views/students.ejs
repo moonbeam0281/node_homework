@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students list</title>
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 2rem;
+    color: #333;
+  }
+
+  nav {
+    background-color: #007bff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .table-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-x: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+
+  table th,
+  table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+
+  table th {
+    background-color: #f0f0f0;
+  }
+
+  .delete-link {
+    color: #dc3545;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .delete-link:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<body>
+  <%- include('partials/nav') %>
+    <h1>Student List:</h1>
+    <div class="table-container">
+      <table border="1">
+        <tr>
+          <th>Name</th>
+          <th>Last name</th>
+          <th>Grade score</th>
+          <th>Actions</th>
+        </tr>
+        <% students.forEach((s, i)=> { %>
+          <tr>
+            <td>
+              <%= s.stuName %>
+            </td>
+            <td>
+              <%= s.stuLName %>
+            </td>
+            <td>
+              <%= s.stuScore %>
+            </td>
+            <td><a href="/delete?i=<%= i %>">Remove Student</a></td>
+          </tr>
+          <% }) %>
+      </table>
+    </div>
+</body>
+
+</html>
