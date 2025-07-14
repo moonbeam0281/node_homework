@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add New Recipe</title>
+  <script>
+    function addIngredient() {
+      const container = document.getElementById('ingredients');
+      const div = document.createElement('div');
+      div.innerHTML = `
+        <input name="ingredientName" placeholder="Name" required>
+        <input name="ingredientValue" placeholder="Value" required>
+        <button type="button" onclick="this.parentElement.remove()">Remove</button>
+        <br>`;
+      container.appendChild(div);
+    }
+
+    function addStep() {
+      const container = document.getElementById('steps');
+      const div = document.createElement('div');
+      div.innerHTML = `
+        <input name="methodStep" placeholder="Step description" required>
+        <button type="button" onclick="this.parentElement.remove()">Remove</button>
+        <br>`;
+      container.appendChild(div);
+    }
+  </script>
+</head>
+<body>
+  <h1>Add a New Recipe</h1>
+
+  <form method="POST" action="/add">
+
+    <label for="recipe">Recipe Name:</label><br>
+    <input type="text" id="recipe" name="recipe" required><br><br>
+
+    <label>Ingredients:</label><br>
+    <div id="ingredients">
+      <div>
+        <input name="ingredientName" placeholder="Name" required>
+        <input name="ingredientValue" placeholder="Value" required>
+        <button type="button" onclick="this.parentElement.remove()">Remove</button>
+        <br>
+      </div>
+    </div>
+    <button type="button" onclick="addIngredient()">Add Ingredient</button><br><br>
+
+    <label>Steps:</label><br>
+    <div id="steps">
+      <div>
+        <input name="methodStep" placeholder="Step description" required>
+        <button type="button" onclick="this.parentElement.remove()">Remove</button>
+        <br>
+      </div>
+    </div>
+    <button type="button" onclick="addStep()">Add Step</button><br><br>
+
+    <button type="submit">Add Recipe</button>
+  </form>
+
+  <p><a href="/">Back to all recipes</a></p>
+</body>
+</html>

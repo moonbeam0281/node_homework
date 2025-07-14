@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recipe List</title>
+</head>
+<body>
+  <h1>All Recipes</h1>
+
+  <a href="/add">Add a New Recipe</a>
+  <ul>
+    <% if (recp.length === 0) { %>
+      <li>No recipes found.</li>
+    <% } else { %>
+      <% recp.forEach(recipe => { %>
+        <li>
+          <h2><%= recipe.recipe %></h2>
+
+          <h4>Ingredients:</h4>
+          <ul>
+            <% for (let key in recipe.ingredients) { %>
+              <li><strong><%= key %>:</strong> <%= recipe.ingredients[key] %></li>
+            <% } %>
+          </ul>
+
+          <h4>Method:</h4>
+          <ol>
+            <% for (let step in recipe.method) { %>
+              <li><%= recipe.method[step] %></li>
+            <% } %>
+          </ol>
+
+          <form method="POST" action="/delete/<%= recipe.id %>">
+            <button type="submit">🗑 Delete</button>
+          </form>
+        </li>
+        <hr>
+      <% }) %>
+    <% } %>
+  </ul>
+</body>
+</html>
