@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 
-const uri = "mongodb+srv://moonbeam:moonbeam@cluster0.tya8wfz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "";
 const client = new MongoClient(uri);
 
 async function run() {
